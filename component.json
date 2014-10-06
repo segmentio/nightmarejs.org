@@ -3,7 +3,8 @@
   "styles": ["index.css"],
   "images": [
     "images/favicon.png",
-    "images/ground.jpg"
+    "images/ground.jpg",
+    "images/header.png"
   ],
   "dependencies": {
     "ianstormtaylor/reset": "*",
