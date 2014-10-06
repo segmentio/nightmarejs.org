@@ -8,7 +8,7 @@ template: index.html
 
 ## Simple API
 
-Browser automation with Nightmare is simple and clear: goto W, click Y, upload S, type I, click W, type Y and wait until you see G.
+Browser automation with Nightmare is simple and clear: goto A, click B, type C, click D and wait until you see E.
 
 Here's a search on Yahoo:
 <pre><code>new <b>Nightmare()</b>
