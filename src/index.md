@@ -8,13 +8,14 @@ template: index.html
 
 ## Simple API
 
-Browser automation with Nightmare is simple and clear: goto A, click B, type C, click D and wait until you see E.
+Nightmare's methods all basic English commands, which lets you simplify deeply nested callbacks into a few sequential statements.
 
-Here's a search on Yahoo with raw Phantomjs vs Nightmare:
+Here's a search on Yahoo:
 
 <div class="Splitcode-wrapper">
 
 <div class="Splitcode-wrapper-left">
+<h3>Phantomjs</h3>
 <pre><code><b>phantom.create</b>(function (ph) {
   <b>ph.createPage</b>(function (page) {
     <b>page.open</b>(<i>'http://yahoo.com'</i>, function (status) {
@@ -39,6 +40,7 @@ Here's a search on Yahoo with raw Phantomjs vs Nightmare:
 </div>
 
 <div class="Splitcode-wrapper-right">
+<h3>Nightmare</h3>
 <pre><code>new <b>Nightmare()</b>
   .<b>goto</b>(<i>'http://yahoo.com'</i>)
   .<b>type</b>(<i>'input[title="Search"]'</i>, <i>'github nightmare'</i>)
@@ -48,8 +50,6 @@ Here's a search on Yahoo with raw Phantomjs vs Nightmare:
 </div>
 
 </div>
-
-The API methods are all basic English commands, which lets you simplify deeply nested callbacks into a few sequential statements.
 
 You can [check out Nightmare's full API here](https://github.com/segmentio/nightmare#api).
 

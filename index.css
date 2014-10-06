@@ -40,13 +40,17 @@ html {
   background-repeat: no-repeat;
 }
 
-h1, h2 {
+h1, h2, h3 {
   font-size: 4em;
   margin-bottom: .5em;
   font-family: var(youmurderer);
   text-transform: uppercase;
   color: var(green);
   text-align: center;
+}
+
+h3 {
+  font-size: 2em;
 }
 
 p {
@@ -268,7 +272,7 @@ hr {
 
 .Splitcode-wrapper {
   margin-left: -15em;
-  height: 23em;
+  height: 28em;
   width: 65em;
   position: relative;
 }
@@ -289,6 +293,10 @@ hr {
 
 .Splitcode-wrapper pre {
   height: 25em;
+}
+
+.Splitcode-wrapper h3 {
+  border-bottom: 1px solid var(green);
 }
 
 /**
