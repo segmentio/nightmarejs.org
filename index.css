@@ -59,7 +59,7 @@ p a {
 }
 
 p a:hover {
-  color: #000;
+  color: var(gray);
 }
 
 figure {
