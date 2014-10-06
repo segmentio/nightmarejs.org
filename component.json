@@ -7,7 +7,6 @@
   ],
   "dependencies": {
     "ianstormtaylor/reset": "*",
-    "segmentio/logo": "*",
-    "segmentio/metalsmith-logo": "*"
+    "segmentio/logo": "*"
   }
 }
