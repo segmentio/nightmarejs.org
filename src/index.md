@@ -12,12 +12,12 @@ Browser automation with Nightmare is simple and clear: goto A, click B, type C, 
 
 Here's a search on Yahoo with raw Phantomjs:
 
-<pre><code>
-<b>phantom.create</b>(function (ph) {
+<pre><code><b>phantom.create</b>(function (ph) {
   <b>ph.createPage</b>(function (page) {
     <b>page.open</b>(<i>'http://yahoo.com'</i>, function (status) {
       <b>page.evaluate</b>(function () {
-        var el = document.querySelector(<i>'input[title="Search"]'</i>);
+        var el =
+          document.querySelector(<i>'input[title="Search"]'</i>);
         el.value = <i>'github nightmare'</i>;
       }, function (result) {
         <b>page.evaluate</b>(function () {
