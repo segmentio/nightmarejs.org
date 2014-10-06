@@ -18,7 +18,7 @@ Here's a search on Yahoo:
   .run();
 </code></pre>
 
-The methods are basic english directions, which lets you simplify [deeply nested callbacks](https://github.com/sgentle/phantomjs-node#how-do-i-use-it) into a few sequential statements. No knocks on phantomjs-node though, it's being used under the hood and is quite clever!
+The methods are basic english directions, which lets you simplify [deeply nested callbacks](https://github.com/sgentle/phantomjs-node#how-do-i-use-it) into a few sequential statements. No knocks on phantomjs-node though, Nightmare uses it under the hood!
 
 You can [check out Nightmare's full API here](https://github.com/segmentio/nightmare#api).
 
