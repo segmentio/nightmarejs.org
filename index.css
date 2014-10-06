@@ -274,7 +274,7 @@ hr {
 .Footer-conjunction {
   display: block;
   text-transform: uppercase;
-  font-family: var(youmurderer);
+  font-family: var(sentinel);
   color: var(gray);
   font-size: var(smaller);
 }
