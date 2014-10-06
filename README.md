@@ -1,7 +1,7 @@
 
-# metalsmith.io
+# nightmarejs.org
 
-  The site for [Metalsmith](https://github.com/segmentio/metalsmith).
+  The site for [Nightmare](https://github.com/segmentio/nightmare).
 
 ## License
 
