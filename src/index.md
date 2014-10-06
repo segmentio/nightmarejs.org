@@ -17,14 +17,14 @@ Here's a search on Yahoo with raw Phantomjs:
   <b>ph.createPage</b>(function (page) {
     <b>page.open</b>(<i>'http://yahoo.com'</i>, function (status) {
       <b>page.evaluate</b>(function () {
-        var element = document.querySelector(<i>'input[title="Search"]'</i>);
-        element.value = <i>'github nightmare'</i>;
+        var el = document.querySelector(<i>'input[title="Search"]'</i>);
+        el.value = <i>'github nightmare'</i>;
       }, function (result) {
         <b>page.evaluate</b>(function () {
-          var element = document.querySelector(<i>'.searchsubmit'</i>);
+          var el = document.querySelector(<i>'.searchsubmit'</i>);
           var event = document.createEvent(<i>'MouseEvent'</i>);
           event.initEvent(<i>'click'</i>, <i>true</i>, <i>false</i>);
-          element.dispatchEvent(event);
+          el.dispatchEvent(event);
         }, function (result) {
           ph.exit();
         });
@@ -34,7 +34,7 @@ Here's a search on Yahoo with raw Phantomjs:
 });
 </code></pre>
 
-And then the same result with Nightmare on top:
+And then the same result with Nightmare:
 
 <pre><code>new <b>Nightmare()</b>
   .<b>goto</b>(<i>'http://yahoo.com'</i>)
