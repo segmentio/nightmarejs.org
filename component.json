@@ -1,0 +1,13 @@
+{
+  "name": "nightmare.github.io",
+  "styles": ["index.css"],
+  "images": [
+    "images/favicon.png",
+    "images/ground.jpg"
+  ],
+  "dependencies": {
+    "ianstormtaylor/reset": "*",
+    "segmentio/logo": "*",
+    "segmentio/metalsmith-logo": "*"
+  }
+}
