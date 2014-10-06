@@ -1,0 +1,136 @@
+<!doctype html>
+<html>
+<head>
+  <title>Nightmare</title>
+  <meta name="description" content="A high level wrapper for PhantomJS that lets you automate browser tasks.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="/metalsmith.io/images/favicon.png">
+  <link rel="stylesheet" href="/build.css">
+  <link rel="stylesheet" href="//cloud.typography.com/6692672/678184/css/fonts.css">
+  <link rel="stylesheet" href="//cdn.symbolset.com/94440cd0456394a198fb9c3302ad80fe007e5eff/symbolset.css">
+  <script type="text/javascript">
+    window.analytics||(window.analytics=[]),window.analytics.methods=["identify","track","trackLink","trackForm","trackClick","trackSubmit","page","pageview","ab","alias","ready","group","on","once","off"],window.analytics.factory=function(t){return function(){var a=Array.prototype.slice.call(arguments);return a.unshift(t),window.analytics.push(a),window.analytics}};for(var i=0;window.analytics.methods.length>i;i++){var method=window.analytics.methods[i];window.analytics[method]=window.analytics.factory(method)}window.analytics.load=function(t){var a=document.createElement("script");a.type="text/javascript",a.async=!0,a.src=("https:"===document.location.protocol?"https://":"http://")+"d2dq2ahtl5zl1z.cloudfront.net/analytics.js/v1/"+t+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(a,n)},window.analytics.SNIPPET_VERSION="2.0.8",
+    window.analytics.page();
+    //window.analytics.load(location.hostname == 'localhost' ? 'tpu2mewfe5' : 'q65isc9b2u');
+  </script>
+</head>
+<body>
+  <header class="Header">
+    <h1 class="Header-title">
+      <a href="/">Nightmare</a>
+    </h1>
+    <p class="Header-subtitle">A high level wrapper for Phantomjs.</p>
+    <a class="Header-github" href="https://github.com/segmentio/nightmare">Star on GitHub</a>
+  </header>
+
+  <section class="Body">
+    <hr>
+<h2 id="simple-api">Simple API</h2>
+<p>Every method is a simple English command: goto, refresh, click, type… you can check out <a href="https://github.com/segmentio/nightmare#api">Nightmare’s full API here</a>.</p>
+<p>Nightmare lets you simplify deeply nested callbacks into a few sequential statements. Here’s an example search on Yahoo:</p>
+<div class="Splitcode-wrapper">
+
+<div class="Splitcode-wrapper-left">
+<h3>Raw Phantomjs</h3>
+<pre><code><b>phantom.create</b>(function (ph) {
+  <b>ph.createPage</b>(function (page) {
+    <b>page.open</b>(<i>‘<a href="http://yahoo.com">http://yahoo.com</a>‘</i>, function (status) {
+      <b>page.evaluate</b>(function () {
+        var el =
+          document.querySelector(<i>‘input[title=”Search”]’</i>);
+        el.value = <i>‘github nightmare’</i>;
+      }, function (result) {
+        <b>page.evaluate</b>(function () {
+          var el = document.querySelector(<i>‘.searchsubmit’</i>);
+          var event = document.createEvent(<i>‘MouseEvent’</i>);
+          event.initEvent(<i>‘click’</i>, <i>true</i>, <i>false</i>);
+          el.dispatchEvent(event);
+        }, function (result) {
+          ph.exit();
+        });
+      });
+    });
+  });
+});
+</code></pre>
+</div>
+
+<div class="Splitcode-wrapper-right">
+<h3>With Nightmare</h3>
+<pre><code>new <b>Nightmare()</b>
+  .<b>goto</b>(<i>‘<a href="http://yahoo.com">http://yahoo.com</a>‘</i>)
+  .<b>type</b>(<i>‘input[title=”Search”]’</i>, <i>‘github nightmare’</i>)
+  .<b>click</b>(<i>‘.searchsubmit’</i>)
+  .run();
+</code></pre>
+</div>
+
+<p></div></p>
+<hr>
+<h2 id="pluggable">Pluggable</h2>
+<p>You can also build plugins to repeat automated sequences in a single call.</p>
+<p>Here’s an example where the Swiftly login sequence has been abstracted for repeated use:</p>
+<pre><code><i>/**
+ * Login to a Swiftly account.
+ *
+ * @param {String} email
+ * @param {String} password
+ */</i>
+
+exports.login = function(email, password){
+  return function(nightmare) {
+    nightmare
+      .<b>viewport</b>(<i>800</i>, <i>1600</i>)
+      .<b>goto</b>(<i>'https://swiftly.com/login'</i>)
+        .<b>type</b>(<i>'#username'</i>, <i>email</i>)
+        .<b>type</b>(<i>'#password'</i>, <i>password</i>)
+        .<b>click</b>(<i>'.button--primary'</i>)
+      .<b>wait</b>();
+  };
+};
+</pre></code>
+
+<p>...then you can use the plugin like this:</p>
+
+<pre><code>var Swiftly = require('nightmare-swiftly');
+new <b>Nightmare()</b>
+  .<b>use</b>(Swiftly.login(<i>email</i>, <i>password</i>))
+  .<b>use</b>(Swiftly.task(<i>instructions</i>, <i>uploads</i>, <i>path</i>))
+  .run();
+</code></pre>
+
+
+
+<hr>
+<h2 id="install-it">Install it</h2>
+<p>Nightmare and its plugins can be installed with npm:</p>
+<pre><code>$ <b>npm</b> install <i>nightmare</i></code></pre>
+
+<p>The package exposes a <a href="https://github.com/segmentio/nightmare#api">Javascript API</a>.</p>
+<hr>
+<h2 id="the-plugins">The Plugins</h2>
+<p>The core Nightmare library doesn’t bundle any plugins by default. You just require new ones as needed, or make your own! </p>
+<p>Here’s a list of the current plugins:</p>
+<ul class="Plugin-list">
+
+  <li class="Plugin">
+    <a class="Plugin-link" href="https://github.com/segmentio/nightmare-swiftly">
+      <h1 class="Plugin-title">Swiftly<i class="Plugin-icon ss-"></i></h1>
+      <i class="Plugin-arrow ss-right"></i>
+      <p class="Plugin-description">Automate workflows in Swiftly&#39;s design service.</p>
+    </a>
+  </li>
+
+</ul>
+
+<p>If you write your own plugins, submit a pull request to the <a href="https://github.com/segmentio/nightmare/tree/gh-pages/src/plugins.json">nightmare</a> repository and it will show up here!</p>
+<hr>
+
+  </section>
+
+  <footer class="Footer">
+    <span class="Footer-conjunction">Built by</span>
+    <h2 class="Footer-logo logo" data-logo="Segment.io" data-color="white"><a href="https://segment.com">Segment</a></h2>
+  </footer>
+</body>
+</html>

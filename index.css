@@ -40,6 +40,10 @@ html {
   background-repeat: no-repeat;
 }
 
+html, body {
+  overflow-x: hidden;
+}
+
 h1, h2, h3 {
   font-size: 4em;
   margin-bottom: .5em;
@@ -55,6 +59,7 @@ h3 {
 
 p {
   margin: 1em 0;
+  margin-bottom: 1em;
 }
 
 p a {
@@ -81,6 +86,7 @@ pre {
   position: relative;
   background-color: var(dark-black);
   padding: 1.5em;
+  margin-bottom: 1em;
 }
 
 pre + pre {
@@ -262,7 +268,7 @@ hr {
 .Body {
   max-width: 34em;
   margin: 0 auto;
-  margin-top: 15em;
+  margin-top: 10em;
   padding-right: 1em;
   padding-left: 1em;
 }
@@ -272,28 +278,17 @@ hr {
  */
 
 .Splitcode-wrapper {
-  margin-left: -15em;
-  height: 28em;
-  width: 65em;
-  position: relative;
+  margin-top: 2em;
 }
 
 .Splitcode-wrapper-left {
   position: relative;
-  left: 0;
-  top: 0;
   width: 32em;
 }
 
 .Splitcode-wrapper-right {
-  position: absolute;
-  right: 1em;
-  top: 0;
-  width: 31em;
-}
-
-.Splitcode-wrapper pre {
-  height: 25em;
+  position: relative;
+  width: 32em;
 }
 
 .Splitcode-wrapper h3 {
@@ -386,6 +381,41 @@ hr {
   .Header-github {
     top: 2.5em;
     right: -4.75em;
+  }
+
+  /**
+   * Splitcode
+   */
+
+  .Splitcode-wrapper {
+    margin-left: -13em;
+    margin-top: 2em;
+    width: 65em;
+    position: relative;
+    font-size: 0.9em;
+  }
+
+  .Splitcode-wrapper-left {
+    position: relative;
+    left: 0;
+    top: 0;
+    width: 32em;
+  }
+
+  .Splitcode-wrapper-right {
+    position: absolute;
+    right: 1em;
+    top: 0;
+    width: 31em;
+  }
+
+  .Splitcode-wrapper pre {
+    height: 25em;
+  }
+
+  .Splitcode-wrapper h3 {
+    border-bottom: 1px solid var(green);
+    margin-bottom: 0;
   }
 
 }
