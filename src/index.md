@@ -8,7 +8,9 @@ template: index.html
 
 ## Simple API
 
-Nightmare's methods all basic English commands, which lets you simplify deeply nested callbacks into a few sequential statements.
+Each method is a basic English command: goto, refresh, click, type, wait... you can check out [Nightmare's full API here](https://github.com/segmentio/nightmare#api).
+
+Nightmare lets you simplify deeply nested callbacks into a few sequential statements.
 
 Here's a search on Yahoo:
 
@@ -50,8 +52,6 @@ Here's a search on Yahoo:
 </div>
 
 </div>
-
-You can [check out Nightmare's full API here](https://github.com/segmentio/nightmare#api).
 
 
 ---
