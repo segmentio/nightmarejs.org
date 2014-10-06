@@ -10,7 +10,7 @@ template: index.html
 
 Browser automation with Nightmare is simple and clear: goto A, click B, type C, click D and wait until you see E.
 
-Here's a search on Yahoo with raw Phantomjs:
+Here's a search on Yahoo with raw Phantomjs vs Nightmare:
 
 <div class="Splitcode-wrapper">
 
