@@ -10,7 +10,32 @@ template: index.html
 
 Browser automation with Nightmare is simple and clear: goto A, click B, type C, click D and wait until you see E.
 
-Here's a search on Yahoo:
+Here's a search on Yahoo with raw Phantomjs:
+
+<pre><code>
+<b>phantom.create</b>(function (ph) {
+  <b>ph.createPage</b>(function (page) {
+    <b>page.open</b>(<i>'http://yahoo.com'</i>, function (status) {
+      <b>page.evaluate</b>(function () {
+        var element = document.querySelector(<i>'input[title="Search"]'</i>);
+        element.value = <i>'github nightmare'</i>;
+      }, function (result) {
+        <b>page.evaluate</b>(function () {
+          var element = document.querySelector(<i>'.searchsubmit'</i>);
+          var event = document.createEvent(<i>'MouseEvent'</i>);
+          event.initEvent(<i>'click'</i>, <i>true</i>, <i>false</i>);
+          element.dispatchEvent(event);
+        }, function (result) {
+          ph.exit();
+        });
+      });
+    });
+  });
+});
+</code></pre>
+
+And then the same result with Nightmare on top:
+
 <pre><code>new <b>Nightmare()</b>
   .<b>goto</b>(<i>'http://yahoo.com'</i>)
   .<b>type</b>(<i>'input[title="Search"]'</i>, <i>'github nightmare'</i>)
@@ -18,7 +43,7 @@ Here's a search on Yahoo:
   .run();
 </code></pre>
 
-The methods are basic English directions, which lets you simplify [deeply nested callbacks](https://github.com/sgentle/phantomjs-node#how-do-i-use-it) into a few sequential statements. No knocks on phantomjs-node though, Nightmare uses it under the hood!
+The API methods are all simple English directions, which lets you simplify deeply nested callbacks into a few sequential statements.
 
 You can [check out Nightmare's full API here](https://github.com/segmentio/nightmare#api).
 
