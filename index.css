@@ -263,6 +263,35 @@ hr {
 }
 
 /**
+ * Splitcode
+ */
+
+.Splitcode-wrapper {
+  margin-left: -15em;
+  height: 23em;
+  width: 65em;
+  position: relative;
+}
+
+.Splitcode-wrapper-left {
+  position: relative;
+  left: 0;
+  top: 0;
+  width: 32em;
+}
+
+.Splitcode-wrapper-right {
+  position: absolute;
+  right: 1em;
+  top: 0;
+  width: 31em;
+}
+
+.Splitcode-wrapper pre {
+  height: 23em;
+}
+
+/**
  * Footer.
  */
 
