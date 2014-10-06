@@ -104,26 +104,3 @@ Nightmare and its plugins can be installed with npm:
 The package exposes a [Javascript API](https://github.com/segmentio/nightmare#api).
 
 ---
-
-
-## The Plugins
-The core Nightmare library doesn't bundle any plugins by default. You just require new ones as needed, or make your own! 
-
-Here's a list of the current plugins:
-
-<ul class="Plugin-list">
-{% for plugin in plugins %}
-  <li class="Plugin">
-    <a class="Plugin-link" href="{{ plugin.repository }}">
-      <h1 class="Plugin-title">{{ plugin.name }}<i class="Plugin-icon ss-{{ plugin.icon }}"></i></h1>
-      <i class="Plugin-arrow ss-right"></i>
-      <p class="Plugin-description">{{ plugin.description }}</p>
-    </a>
-  </li>
-{% endfor %}
-</ul>
-
-If you write your own plugins, submit a pull request to the [nightmare](https://github.com/segmentio/nightmare/tree/gh-pages/src/plugins.json) repository and it will show up here!
-
-
----
