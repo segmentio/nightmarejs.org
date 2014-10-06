@@ -297,6 +297,7 @@ hr {
 
 .Splitcode-wrapper h3 {
   border-bottom: 1px solid var(green);
+  margin-bottom: 0;
 }
 
 /**
