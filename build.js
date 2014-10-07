@@ -49,7 +49,7 @@ function build(fn){
     pattern: '**/*.md'
   }));
   m.use(markdown({
-    smartypants: true,
+    smartypants: false,
     smartLists: true,
   }));
   m.use(templates({

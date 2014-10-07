@@ -11,7 +11,7 @@
   <script type="text/javascript">
     window.analytics||(window.analytics=[]),window.analytics.methods=["identify","track","trackLink","trackForm","trackClick","trackSubmit","page","pageview","ab","alias","ready","group","on","once","off"],window.analytics.factory=function(t){return function(){var a=Array.prototype.slice.call(arguments);return a.unshift(t),window.analytics.push(a),window.analytics}};for(var i=0;window.analytics.methods.length>i;i++){var method=window.analytics.methods[i];window.analytics[method]=window.analytics.factory(method)}window.analytics.load=function(t){var a=document.createElement("script");a.type="text/javascript",a.async=!0,a.src=("https:"===document.location.protocol?"https://":"http://")+"d2dq2ahtl5zl1z.cloudfront.net/analytics.js/v1/"+t+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(a,n)},window.analytics.SNIPPET_VERSION="2.0.8",
     window.analytics.page();
-    //window.analytics.load(location.hostname == 'localhost' ? 'tpu2mewfe5' : 'q65isc9b2u');
+    window.analytics.load(location.hostname == 'localhost' ? 'tpu2mewfe5' : '7wW12EyGvu');
   </script>
 </head>
 <body>
@@ -26,24 +26,24 @@
   <section class="Body">
     <hr>
 <h2 id="simple-api">Simple API</h2>
-<p>Every method is a simple English command: goto, refresh, click, type… you can check out <a href="https://github.com/segmentio/nightmare#api">Nightmare’s full API here</a>.</p>
-<p>Nightmare lets you simplify deeply nested callbacks into a few sequential statements. Here’s an example search on Yahoo:</p>
+<p>Every method is a simple English command: goto, refresh, click, type... you can check out <a href="https://github.com/segmentio/nightmare#api">Nightmare&#39;s full API here</a>.</p>
+<p>Nightmare lets you simplify deeply nested callbacks into a few sequential statements. Here&#39;s an example search on Yahoo:</p>
 <div class="Splitcode-wrapper">
 
 <div class="Splitcode-wrapper-left">
 <h3>Raw Phantomjs</h3>
 <pre><code><b>phantom.create</b>(function (ph) {
   <b>ph.createPage</b>(function (page) {
-    <b>page.open</b>(<i>‘<a href="http://yahoo.com">http://yahoo.com</a>‘</i>, function (status) {
+    <b>page.open</b>(<i>&#39;<a href="http://yahoo.com">http://yahoo.com</a>&#39;</i>, function (status) {
       <b>page.evaluate</b>(function () {
         var el =
-          document.querySelector(<i>‘input[title=”Search”]’</i>);
-        el.value = <i>‘github nightmare’</i>;
+          document.querySelector(<i>&#39;input[title=&quot;Search&quot;]&#39;</i>);
+        el.value = <i>&#39;github nightmare&#39;</i>;
       }, function (result) {
         <b>page.evaluate</b>(function () {
-          var el = document.querySelector(<i>‘.searchsubmit’</i>);
-          var event = document.createEvent(<i>‘MouseEvent’</i>);
-          event.initEvent(<i>‘click’</i>, <i>true</i>, <i>false</i>);
+          var el = document.querySelector(<i>&#39;.searchsubmit&#39;</i>);
+          var event = document.createEvent(<i>&#39;MouseEvent&#39;</i>);
+          event.initEvent(<i>&#39;click&#39;</i>, <i>true</i>, <i>false</i>);
           el.dispatchEvent(event);
         }, function (result) {
           ph.exit();
@@ -58,9 +58,9 @@
 <div class="Splitcode-wrapper-right">
 <h3>With Nightmare</h3>
 <pre><code>new <b>Nightmare()</b>
-  .<b>goto</b>(<i>‘<a href="http://yahoo.com">http://yahoo.com</a>‘</i>)
-  .<b>type</b>(<i>‘input[title=”Search”]’</i>, <i>‘github nightmare’</i>)
-  .<b>click</b>(<i>‘.searchsubmit’</i>)
+  .<b>goto</b>(<i>&#39;<a href="http://yahoo.com">http://yahoo.com</a>&#39;</i>)
+  .<b>type</b>(<i>&#39;input[title=&quot;Search&quot;]&#39;</i>, <i>&#39;github nightmare&#39;</i>)
+  .<b>click</b>(<i>&#39;.searchsubmit&#39;</i>)
   .run();
 </code></pre>
 </div>
@@ -69,7 +69,7 @@
 <hr>
 <h2 id="pluggable">Pluggable</h2>
 <p>You can also build plugins to repeat automated sequences in a single call.</p>
-<p>Here’s an example where the Swiftly login sequence has been abstracted for repeated use:</p>
+<p>Here&#39;s an example where the Swiftly login sequence has been abstracted for repeated use:</p>
 <pre><code><i>/**
  * Login to a Swiftly account.
  *
@@ -108,29 +108,12 @@ new <b>Nightmare()</b>
 
 <p>The package exposes a <a href="https://github.com/segmentio/nightmare#api">Javascript API</a>.</p>
 <hr>
-<h2 id="the-plugins">The Plugins</h2>
-<p>The core Nightmare library doesn’t bundle any plugins by default. You just require new ones as needed, or make your own! </p>
-<p>Here’s a list of the current plugins:</p>
-<ul class="Plugin-list">
-
-  <li class="Plugin">
-    <a class="Plugin-link" href="https://github.com/segmentio/nightmare-swiftly">
-      <h1 class="Plugin-title">Swiftly<i class="Plugin-icon ss-"></i></h1>
-      <i class="Plugin-arrow ss-right"></i>
-      <p class="Plugin-description">Automate workflows in Swiftly&#39;s design service.</p>
-    </a>
-  </li>
-
-</ul>
-
-<p>If you write your own plugins, submit a pull request to the <a href="https://github.com/segmentio/nightmare/tree/gh-pages/src/plugins.json">nightmare</a> repository and it will show up here!</p>
-<hr>
 
   </section>
 
   <footer class="Footer">
     <span class="Footer-conjunction">Built by</span>
-    <h2 class="Footer-logo logo" data-logo="Segment.io" data-color="white"><a href="https://segment.com">Segment</a></h2>
+    <h2 class="Footer-logo logo" data-logo="Segment.io" data-color="white"><a href="https://segment.io">Segment</a></h2>
   </footer>
 </body>
 </html>
