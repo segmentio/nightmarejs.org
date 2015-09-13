@@ -39,10 +39,6 @@ function build(fn){
    */
 
   var m = Metalsmith(__dirname);
-  m.use(metadata({
-    plugins: 'plugins.json',
-    examples: 'examples.json'
-  }));
   m.use(templates({
     engine: 'swig',
     inPlace: true,

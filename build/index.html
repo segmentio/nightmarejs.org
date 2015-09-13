@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>Nightmare</title>
-  <meta name="description" content="A high level wrapper for PhantomJS that lets you automate browser tasks.">
+  <meta name="description" content="Nightmare is a high-level browser automation library.">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" href="/nightmarejs.org/images/favicon.png">
   <link rel="stylesheet" href="/build.css">
@@ -19,7 +19,7 @@
     <h1 class="Header-title">
       <a href="/">Nightmare</a>
     </h1>
-    <p class="Header-subtitle">A high level wrapper for Phantomjs.</p>
+    <p class="Header-subtitle">A high-level browser automation library.</p>
     <a class="Header-github" href="https://github.com/segmentio/nightmare">Star on GitHub</a>
   </header>
 
@@ -57,50 +57,14 @@
 
 <div class="Splitcode-wrapper-right">
 <h3>With Nightmare</h3>
-<pre><code>new <b>Nightmare()</b>
+<pre><code>yield <b>Nightmare()</b>
   .<b>goto</b>(<i>&#39;<a href="http://yahoo.com">http://yahoo.com</a>&#39;</i>)
   .<b>type</b>(<i>&#39;input[title=&quot;Search&quot;]&#39;</i>, <i>&#39;github nightmare&#39;</i>)
-  .<b>click</b>(<i>&#39;.searchsubmit&#39;</i>)
-  .run();
+  .<b>click</b>(<i>&#39;.searchsubmit&#39;</i>);
 </code></pre>
 </div>
 
 <p></div></p>
-<hr>
-<h2 id="pluggable">Pluggable</h2>
-<p>You can also build plugins to repeat automated sequences in a single call.</p>
-<p>Here&#39;s an example where the Swiftly login sequence has been abstracted for repeated use:</p>
-<pre><code><i>/**
- * Login to a Swiftly account.
- *
- * @param {String} email
- * @param {String} password
- */</i>
-
-exports.login = function(email, password){
-  return function(nightmare) {
-    nightmare
-      .<b>viewport</b>(<i>800</i>, <i>1600</i>)
-      .<b>goto</b>(<i>'https://swiftly.com/login'</i>)
-        .<b>type</b>(<i>'#username'</i>, <i>email</i>)
-        .<b>type</b>(<i>'#password'</i>, <i>password</i>)
-        .<b>click</b>(<i>'.button--primary'</i>)
-      .<b>wait</b>();
-  };
-};
-</pre></code>
-
-<p>...then you can use the plugin like this:</p>
-
-<pre><code>var Swiftly = require('nightmare-swiftly');
-new <b>Nightmare()</b>
-  .<b>use</b>(Swiftly.login(<i>email</i>, <i>password</i>))
-  .<b>use</b>(Swiftly.task(<i>instructions</i>, <i>uploads</i>, <i>path</i>))
-  .run();
-</code></pre>
-
-
-
 <hr>
 <h2 id="install-it">Install it</h2>
 <p>Nightmare and its plugins can be installed with npm:</p>
@@ -113,7 +77,7 @@ new <b>Nightmare()</b>
 
   <footer class="Footer">
     <span class="Footer-conjunction">Built by</span>
-    <h2 class="Footer-logo logo" data-logo="Segment.io" data-color="white"><a href="https://segment.io">Segment</a></h2>
+    <h2 class="Footer-logo logo" data-logo="Segment.io" data-color="white"><a href="https://segment.com">Segment</a></h2>
   </footer>
 </body>
 </html>

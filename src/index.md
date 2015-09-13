@@ -41,56 +41,14 @@ Nightmare lets you simplify deeply nested callbacks into a few sequential statem
 
 <div class="Splitcode-wrapper-right">
 <h3>With Nightmare</h3>
-<pre><code>new <b>Nightmare()</b>
+<pre><code>yield <b>Nightmare()</b>
   .<b>goto</b>(<i>'http://yahoo.com'</i>)
   .<b>type</b>(<i>'input[title="Search"]'</i>, <i>'github nightmare'</i>)
-  .<b>click</b>(<i>'.searchsubmit'</i>)
-  .run();
+  .<b>click</b>(<i>'.searchsubmit'</i>);
 </code></pre>
 </div>
 
 </div>
-
-
----
-
-
-## Pluggable
-
-You can also build plugins to repeat automated sequences in a single call.
-
-Here's an example where the Swiftly login sequence has been abstracted for repeated use:
-
-<pre><code><i>/**
- * Login to a Swiftly account.
- *
- * @param {String} email
- * @param {String} password
- */</i>
-
-exports.login = function(email, password){
-  return function(nightmare) {
-    nightmare
-      .<b>viewport</b>(<i>800</i>, <i>1600</i>)
-      .<b>goto</b>(<i>'https://swiftly.com/login'</i>)
-        .<b>type</b>(<i>'#username'</i>, <i>email</i>)
-        .<b>type</b>(<i>'#password'</i>, <i>password</i>)
-        .<b>click</b>(<i>'.button--primary'</i>)
-      .<b>wait</b>();
-  };
-};
-</pre></code>
-
-<p>...then you can use the plugin like this:</p>
-
-<pre><code>var Swiftly = require('nightmare-swiftly');
-new <b>Nightmare()</b>
-  .<b>use</b>(Swiftly.login(<i>email</i>, <i>password</i>))
-  .<b>use</b>(Swiftly.task(<i>instructions</i>, <i>uploads</i>, <i>path</i>))
-  .run();
-</code></pre>
-
-
 
 ---
 
