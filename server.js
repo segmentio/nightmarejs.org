@@ -55,6 +55,9 @@ function builder(req, res, next){
     context: {
       ip: req.ip
     }
+  }, function(err, batch){
+    if (err) console.log(err);
+    else console.log('successfully flushed');
   });
   build(function(err){
     if (err) return next(err);
