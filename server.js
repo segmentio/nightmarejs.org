@@ -1,6 +1,9 @@
 
 var build = require('./build');
 var express = require('express');
+var Analytics = require('analytics-node');
+
+var analytics = new Analytics('7wW12EyGvu');
 
 /**
  * App.
@@ -41,6 +44,16 @@ app.listen(process.env.PORT, function(){
 
 function builder(req, res, next){
   if ('/' != req.path) return next();
+  analytics.page({
+    userId: 'random-id',
+    name: 'Home',
+    properties: {
+      url: 'http://www.nightmarejs.org' + req.originalUrl
+    },
+    context: {
+      ip: req.ip
+    }
+  });
   build(function(err){
     if (err) return next(err);
     console.log('Built');
