@@ -3,7 +3,9 @@ var build = require('./build');
 var express = require('express');
 var Analytics = require('analytics-node');
 
-var analytics = new Analytics('7wW12EyGvu');
+var analytics = new Analytics('7wW12EyGvu', {
+  flushAt: 1
+});
 
 /**
  * App.
