@@ -60,6 +60,7 @@ function builder(req, res, next){
     if (err) console.log(err);
     else console.log('successfully flushed');
   });
+  console.log('logging something....');
   build(function(err){
     if (err) return next(err);
     console.log('Built');
