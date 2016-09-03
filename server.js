@@ -1,11 +1,6 @@
 
 var build = require('./build');
 var express = require('express');
-var Analytics = require('analytics-node');
-
-var analytics = new Analytics('7wW12EyGvu', {
-  flushAt: 1
-});
 
 /**
  * App.
@@ -46,21 +41,6 @@ app.listen(process.env.PORT, function(){
 
 function builder(req, res, next){
   if ('/' != req.path) return next();
-  analytics.page({
-    userId: 'random-id',
-    name: 'Home',
-    properties: {
-      url: 'http://www.nightmarejs.org' + req.originalUrl
-    },
-    context: {
-      ip: req.ip
-    }
-  });
-  analytics.flush(function(err, batch){
-    if (err) console.log(err);
-    else console.log('successfully flushed');
-  });
-  console.log('logging something....');
   build(function(err){
     if (err) return next(err);
     console.log('Built');
