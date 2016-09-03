@@ -55,7 +55,8 @@ function builder(req, res, next){
     context: {
       ip: req.ip
     }
-  }, function(err, batch){
+  });
+  analytics.flush(function(err, batch){
     if (err) console.log(err);
     else console.log('successfully flushed');
   });
