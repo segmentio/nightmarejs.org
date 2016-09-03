@@ -1,6 +1,7 @@
 {
   "name": "nightmarejs.org",
   "dependencies": {
+    "analytics-node": "^2.1.0",
     "async": "^0.2.10",
     "component": "^0.19.9",
     "component-builder": "~0.11.2",
