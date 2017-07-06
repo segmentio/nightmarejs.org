@@ -59,6 +59,6 @@ Nightmare and its plugins can be installed with npm:
 
 <pre><code>$ <b>npm</b> install <i>nightmare</i></code></pre>
 
-The package exposes a [Javascript API](https://github.com/segmentio/nightmare#api).
+The package exposes a [JavaScript API](https://github.com/segmentio/nightmare#api).
 
 ---
